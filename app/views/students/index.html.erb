@@ -1,0 +1,22 @@
+<h1>Student data</h1>
+<%= link_to 'New book', new_student_path %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email Id</th>
+    <th>Phone Number</th>
+  </tr>
+
+  <% @students.each do |student| %>
+    <tr>
+      <td><%= student.name %></td>
+      <td><%= student.email %></td>
+      <td><%= student.phone_number%></td>
+      <td><%= link_to 'Show', student_path(student) %></td>
+      <td><%= link_to 'Edit', edit_student_path(student) %></td>
+      <td><%= link_to 'Destroy', student_path(student),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
